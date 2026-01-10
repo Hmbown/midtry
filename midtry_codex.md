@@ -1,7 +1,7 @@
-# MidTry: Inference-Time Reasoning Enhancement
+# MidTry: Inference-Time Reasoning Enhancement (Prompt Template)
 
 ## Task
-$ARGUMENTS
+{{TASK}}
 
 ---
 
@@ -9,7 +9,7 @@ $ARGUMENTS
 
 Apply the DeepSeek R1 + mHC protocol with all 6 phases. Keep reasoning concise and checkable; do not include hidden chain-of-thought. Use short summaries, explicit verification notes, and the exact phase labels below. Do not skip phases unless the task explicitly includes "--quick".
 
-## PHASE 1: SCAFFOLD (R1 Reflection Triggers)
+### PHASE 1: SCAFFOLD (R1 Reflection Triggers)
 
 Restate the problem and add explicit verification triggers.
 
@@ -23,7 +23,7 @@ PHASE 1:
 
 ---
 
-## PHASE 2: MULTI-PATH EXPLORATION (mHC-Inspired)
+### PHASE 2: MULTI-PATH EXPLORATION (mHC-Inspired)
 
 Generate 4 distinct reasoning paths:
 - Path 1: Conservative (T=0.7)
@@ -60,7 +60,7 @@ PATH 4 [Divergent]:
 
 ---
 
-## PHASE 3: GRPO SCORING (Rule-Based Rewards)
+### PHASE 3: GRPO SCORING (Rule-Based Rewards)
 
 Score each path using the rubric:
 - Verification step present: +0.4
@@ -77,7 +77,7 @@ PHASE 3:
 
 ---
 
-## PHASE 4: GRPO SELECTION (Relative Advantage)
+### PHASE 4: GRPO SELECTION (Relative Advantage)
 
 Compute group statistics and advantages:
 - Mean score
@@ -96,7 +96,7 @@ PHASE 4:
 
 ---
 
-## PHASE 5: CONSENSUS CHECK (mHC Aggregation)
+### PHASE 5: CONSENSUS CHECK (mHC Aggregation)
 
 Check agreement and confidence.
 
@@ -109,7 +109,7 @@ PHASE 5:
 
 ---
 
-## PHASE 6: FINAL VERIFICATION (R1 "Aha Moment")
+### PHASE 6: FINAL VERIFICATION (R1 "Aha Moment")
 
 Do a final pass for errors or misreadings.
 

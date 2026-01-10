@@ -1,11 +1,4 @@
-# MidTry: Inference-Time Reasoning Enhancement
-
-## Task
-$ARGUMENTS
-
----
-
-## Protocol: Enhanced Reasoning Pipeline
+# MidTry Protocol
 
 Apply the DeepSeek R1 + mHC protocol with all 6 phases. Keep reasoning concise and checkable; do not include hidden chain-of-thought. Use short summaries, explicit verification notes, and the exact phase labels below. Do not skip phases unless the task explicitly includes "--quick".
 
@@ -139,7 +132,3 @@ If the task includes "--quick":
 - Still run Phases 3-6.
 - For Phase 4, use Std deviation = 1 and Advantage = 0.0 for the single path.
 - Mark Phase 5 confidence based on your verification quality.
-
----
-
-Begin the MidTry protocol now. Start with PHASE 1.

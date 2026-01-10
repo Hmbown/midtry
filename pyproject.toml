@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling>=1.26.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "MidTry"
+version = "0.1.0"
+description = "Inference-time reasoning enhancement protocol."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/Hmbown/midtry"
+Repository = "https://github.com/Hmbown/midtry"
+
+[tool.hatch.build.targets.wheel]
+packages = ["midtry"]
+include = ["midtry/data/protocol.md"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "midtry",
+  "midtry/data/protocol.md",
+  "README.md",
+  "LICENSE",
+]

@@ -2,7 +2,7 @@
 
 **Inference-Time Reasoning Enhancement for Claude Code**
 
-MidTry is a Claude Code skill that externalizes DeepSeek R1 and mHC research techniques to dramatically improve LLM reasoning quality at inference time—no model retraining required.
+MidTry is a Claude Code skill that externalizes DeepSeek R1 and mHC research techniques to dramatically improve LLM reasoning quality at inference time -- no model retraining required.
 
 ## What It Does
 
@@ -31,9 +31,48 @@ curl -o ~/.claude/commands/midtry.md https://raw.githubusercontent.com/Hmbown/mi
 2. Copy it to `~/.claude/commands/midtry.md`
 3. Restart Claude Code
 
+### Universal Installer
+
+From the repo root:
+
+```bash
+./install.sh
+```
+
+Use `--dry-run` to preview without copying files.
+
+### Codex CLI
+
+Codex uses agent skills. This repo includes the MidTry skill at `.codex/skills/midtry`.
+
+**Option 1 (recommended): user-scope install**
+- `install.sh` installs the skill to `~/.codex/skills/midtry`
+- Invoke it by mentioning `$midtry` in your Codex prompt
+- `install.sh` also installs a `midtry` wrapper to `~/.local/bin` when `codex` is on your PATH
+
+**Option 2: repo-scope skill**
+- Run Codex from this repo (skill is already under `.codex/skills/midtry`)
+- Invoke `$midtry <task>` without installing anything
+
+### Other LLM CLIs
+
+If your CLI supports the agent skills standard, point it at `.codex/skills/midtry`. Otherwise, use `midtry_codex.md` as a generic prompt template and replace `{{TASK}}` with the user task.
+The packaged skill is available at `dist/midtry.skill`.
+
+### PyPI Package
+
+The PyPI package name is `MidTry`.
+
+```bash
+pip install MidTry
+python -c "import midtry; print(midtry.load_protocol())"
+```
+
 ## Usage
 
-Once installed, invoke MidTry with any reasoning task:
+Once installed, invoke MidTry with any reasoning task.
+
+Claude Code:
 
 ```
 /midtry What is the probability of getting exactly 3 heads in 5 fair coin flips?
@@ -47,12 +86,30 @@ Once installed, invoke MidTry with any reasoning task:
 /midtry Explain the tradeoffs between microservices and monolithic architecture
 ```
 
+Codex CLI:
+
+```
+$midtry Explain the tradeoffs between microservices and monolithic architecture
+```
+
+Codex CLI (wrapper):
+
+```
+midtry "Explain the tradeoffs between microservices and monolithic architecture"
+```
+
 ### Quick Mode
 
 For simpler tasks, add `--quick` to skip multi-path exploration:
 
 ```
 /midtry --quick What is 17 * 23?
+```
+
+Codex wrapper:
+
+```
+midtry --quick "What is 17 * 23?"
 ```
 
 ## How It Works
@@ -90,7 +147,7 @@ Advantage(path_i) = (score_i - mean(all_scores)) / std(all_scores)
 Checks consensus across paths to determine confidence level.
 
 ### Phase 6: Final Verification
-R1's "aha moment" pattern—one last check for errors before finalizing.
+R1's "aha moment" pattern -- one last check for errors before finalizing.
 
 ## Research Foundation
 
