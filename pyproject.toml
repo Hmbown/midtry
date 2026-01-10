@@ -65,6 +65,8 @@ exclude = [
     "midtry/.DS_Store",
     "midtry/firebase-debug.log",
     "midtry/config.toml",
+    "**/*.skill",
+    "dist",
 ]
 
 [tool.ruff]
