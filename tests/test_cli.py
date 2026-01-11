@@ -6,7 +6,7 @@ from typer.testing import CliRunner
 
 from midtry.cli import app
 
-runner = CliRunner(mix_stderr=False)
+runner = CliRunner()
 
 
 class TestVersion:
