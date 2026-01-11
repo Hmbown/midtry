@@ -298,9 +298,6 @@ def main(
     midtry_config.max_parallel = max_parallel
     midtry_config.mode = "random" if shuffle_mode else "ordered"
 
-    if quick:
-        midtry_config.max_parallel = 2
-
     # Parse models list
     clis = None
     if models:
