@@ -270,7 +270,6 @@ def main(
 
     # Handle case where subcommand name is passed as task argument
     # This can happen in test environments where argument matching differs
-    console.print(f"[dim]DEBUG: task={repr(task)}, invoked={ctx.invoked_subcommand}[/dim]")
     if task in ("detect", "demo"):
         if task == "detect":
             return detect()
